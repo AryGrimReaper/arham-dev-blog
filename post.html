@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Posts | Arham’s Dev Journal</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/favicon.png" type="image/png">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+    :root {
+      --light-bg: #fcfafa;
+      --light-card: #ffffff;
+      --dark-bg: #181818;
+      --dark-card: #222;
+      --text-light: #444;
+      --text-dark: #f1f1f1;
+      --accent: #6c63ff;
+      --accent-hover: #4ecca3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background-color: var(--dark-bg);
+      color: var(--text-dark);
+    }
+
+    header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1e1e2f;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 6rem 1rem 1rem; /* top padding increased from 1rem to 6rem */
+}
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent-hover);
+    }
+
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--accent);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      padding: 10px 10px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .dark-toggle:hover {
+      background: var(--accent-hover);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .post {
+      background: var(--light-card);
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    body.dark .post {
+      background: var(--dark-card);
+    }
+
+    .post img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .post h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .post .meta {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+
+    .post p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      margin-top: 1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .post h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Arham’s Dev Blog</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="post.html">Posts</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="post">
+      <img src="images/blog1.png" alt="Calculator Post">
+      <h2>How I Built a PWA Calculator</h2>
+      <div class="meta">Posted on July 2, 2025 • Tools: HTML, JS, Math.js</div>
+      <p>SmartCalc was my first serious attempt at blending UI with functionality. It features dark mode, keyboard input, scientific buttons, and even saves your history using localStorage.</p>
+      <p>One of the best parts was learning to integrate math.js for scientific evaluation. This helped me avoid manual parsing logic.</p>
+      <p>This wasn’t just about making a calculator — it was about making *my own tool* that felt smooth, smart, and usable. I’d used boring online calculators before, and I thought, “Why not build something cleaner and more powerful myself?”</p>
+      <p>I faced loads of small problems — from managing float precision to handling keyboard shortcuts without breaking the UI. But that’s where the learning happened. Every bug was a lesson in disguise.</p>
+      <p>The best moment? Watching the app run offline for the first time after setting up the manifest and service worker. That tiny “Install” prompt felt like a badge of honor.</p>
+
+      <div class="tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">PWA</span>
+        <span class="tag">UI/UX</span>
+      </div>
+    </div>
+
+    <div class="post">
+      <img src="images/blog2.png" alt="Dark Mode Post">
+      <h2>Dark Mode Toggle with jQuery</h2>
+      <div class="meta">Posted on July 3, 2025 • UX Focused</div>
+      <p>I created a clean, animated dark mode toggle using just a few lines of jQuery. It stores your preference in localStorage so it remembers your choice even when you revisit.</p>
+      <p>Dark mode is essential in today’s UI — not just for looks, but for accessibility and comfort during night-time browsing.</p>
+      <p>I’ve always been that guy who flips on dark mode the second it’s available. So naturally, I wanted my blog to respect that choice too. This wasn’t about being trendy — it was about respecting how people actually browse.</p>
+      <p>The toggle button started off plain, but I kept tweaking the animations and placement until it *felt right*. Smooth transitions, saved preferences... those are the touches that make an interface feel like it knows you.</p>
+      <p>Looking back, it’s wild how just 5–6 lines of jQuery can add so much life to a site.</p>
+
+      <div class="tags">
+        <span class="tag">jQuery</span>
+        <span class="tag">Dark Mode</span>
+      </div>
+    </div>
+
+    <div class="post">
+      <img src="images/blog3.png" alt="Design Principles Post">
+      <h2>Blog Design Principles</h2>
+      <div class="meta">Posted on July 4, 2025 • Design</div>
+      <p>I follow 3 key principles in blog layout design: whitespace, mobile-first thinking, and a consistent color scheme. These principles are visible across this blog site.</p>
+      <p>This project helped me solidify how to work with flex/grid systems, spacing, and balance aesthetics with function.</p>
+      <p>Designing this blog wasn’t just “make it look nice.” I wanted it to feel *quiet*, like stepping into a personal space. I leaned into generous spacing because I hate cluttered layouts that try too hard.</p>
+      <p>I also built mobile-first — mainly because I read most blogs on my phone while lying on the couch. If it didn’t feel good there, it didn’t belong in the design.</p>
+      <p>The hardest part? Finding the right color scheme. It took me 3–4 versions before landing on something that wasn’t too loud but still had character. Deep purples and cool tones just... clicked.</p>
+
+      <div class="tags">
+        <span class="tag">Design</span>
+        <span class="tag">Mobile-First</span>
+        <span class="tag">Best Practices</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Arham Hamid. Built with HTML, CSS, JS, and jQuery.
+  </footer>
+
+  <!-- Floating dark mode button -->
+  <button class="dark-toggle" title="Toggle Dark Mode">🌙</button>
+
+  <script>
+    $(document).ready(function () {
+      const darkModeKey = "blogDarkMode";
+      if (localStorage.getItem(darkModeKey) === "true") {
+        $("body").addClass("dark");
+      }
+
+      $(".dark-toggle").on("click", function () {
+        $("body").toggleClass("dark");
+        localStorage.setItem(darkModeKey, $("body").hasClass("dark"));
+      });
+    });
+  </script>
+</body>
+</html>
