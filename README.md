@@ -63,7 +63,7 @@ Blog Page/
 ## 👨‍💻 Author
 
 **Arham Hamid**  
-Cybersecurity student • Frontend dev • Builder-in-progress
+S6 LHS student • Frontend dev • Builder-in-progress
 
 ---
 
